@@ -1,36 +1,141 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# GitHub Repository Search
+
+A modern, responsive web application for searching and discovering repositories on GitHub. Built with Next.js, React, and Tailwind CSS.
+
+## Features
+
+- 🔍 **Repository Search**: Search GitHub repositories with real-time results
+- 🎯 **Advanced Filtering**: Filter by language, sort by stars/forks/date, and order results
+- 📱 **Responsive Design**: Works seamlessly on desktop and mobile devices
+- ⚡ **Debounced Search**: Optimized API calls with search debouncing
+- 📄 **Pagination**: Navigate through large result sets with intuitive pagination
+- 🔗 **URL State Management**: Search state is maintained in URL parameters
+- 🎨 **Modern UI**: Beautiful, clean interface with smooth animations
+- ⚠️ **Error Handling**: Comprehensive error handling for API failures
+- 🔄 **Loading States**: Clear loading indicators during API calls
+
+## Technical Stack
+
+- **Framework**: Next.js 14 with App Router
+- **Language**: TypeScript
+- **Styling**: Tailwind CSS
+- **API**: GitHub REST API
+- **State Management**: React hooks with URL state
+- **Routing**: Next.js built-in routing
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
 
+- Node.js 18+ 
+- npm or yarn
+
+### Installation
+
+1. Clone the repository:
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone <repository-url>
+cd interview-nuvento
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. Install dependencies:
+```bash
+npm install
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+3. Run the development server:
+```bash
+npm run dev
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+4. Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-## Learn More
+## Usage
 
-To learn more about Next.js, take a look at the following resources:
+### Search Repositories
+- Enter a search term in the search bar
+- Results will appear automatically after 500ms (debounced)
+- Use filters to narrow down results
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Filter Options
+- **Language**: Filter by programming language
+- **Sort By**: Sort by stars, forks, help-wanted issues, updated date, or created date
+- **Order**: Choose ascending or descending order
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Navigation
+- Use pagination controls to navigate through results
+- Click on repository names to open them on GitHub
+- All search state is preserved in the URL for easy sharing
 
-## Deploy on Vercel
+## API Integration
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+The application integrates with the GitHub Search REST API:
+- **Base URL**: `https://api.github.com/search/repositories`
+- **Authentication**: Not required (uses unauthenticated requests)
+- **Rate Limiting**: Respects GitHub's rate limits
+- **Error Handling**: Graceful handling of API errors
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Project Structure
+
+```
+src/
+├── app/
+│   ├── page.tsx          # Main application page
+│   ├── layout.tsx        # Root layout
+│   └── globals.css       # Global styles
+├── components/
+│   ├── SearchBar.tsx     # Search input with debouncing
+│   ├── FilterPanel.tsx   # Filter controls
+│   ├── RepositoryList.tsx # Repository cards
+│   ├── Pagination.tsx    # Pagination controls
+│   └── LoadingSpinner.tsx # Loading indicator
+└── types/
+    └── index.ts          # TypeScript type definitions
+```
+
+## Key Features Implementation
+
+### Search Debouncing
+- 500ms debounce delay to optimize API calls
+- Prevents excessive requests while typing
+
+### URL State Management
+- Search parameters stored in URL
+- Browser back/forward navigation works
+- Shareable URLs with search state
+
+### Responsive Design
+- Mobile-first approach
+- Collapsible filter panel on mobile
+- Optimized layouts for all screen sizes
+
+### Error Handling
+- Network error handling
+- API error responses
+- User-friendly error messages
+
+## Available Scripts
+
+- `npm run dev` - Start development server
+- `npm run build` - Build for production
+- `npm run start` - Start production server
+- `npm run lint` - Run ESLint
+
+## Browser Support
+
+- Chrome (latest)
+- Firefox (latest)
+- Safari (latest)
+- Edge (latest)
+
+## Contributing
+
+1. Fork the repository
+2. Create a feature branch
+3. Make your changes
+4. Add tests if applicable
+5. Submit a pull request
+
+## License
+
+This project is created for technical assessment purposes.
