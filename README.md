@@ -35,7 +35,7 @@ A modern, responsive web application for searching and discovering repositories 
 1. Clone the repository:
 ```bash
 git clone <repository-url>
-cd interview-nuvento
+cd nuvento_repo_task
 ```
 
 2. Install dependencies:
